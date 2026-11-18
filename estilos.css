@@ -1,0 +1,230 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: #fff8d6;
+    color: #263238;
+}
+
+/* ENCABEZADO */
+
+header {
+    background: #ffdf00;
+    text-align: center;
+    padding: 35px 15px;
+    border-bottom: 8px solid #1769aa;
+}
+
+header h1 {
+    color: #174c85;
+    font-size: 38px;
+    font-weight: 900;
+    text-shadow: 2px 2px white;
+}
+
+header p {
+    color: #333;
+    font-size: 17px;
+    margin-top: 8px;
+}
+
+/* CONTENEDOR */
+
+.contenedor {
+    width: 90%;
+    max-width: 1100px;
+    margin: 30px auto;
+}
+
+.bienvenida {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.bienvenida h2 {
+    color: #1769aa;
+    font-size: 27px;
+}
+
+.bienvenida p {
+    margin-top: 8px;
+}
+
+/* TARJETAS */
+
+.tarjeta {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    margin-bottom: 25px;
+    border: 3px solid #ffdf00;
+    box-shadow: 0 5px 12px #00000015;
+}
+
+.tarjeta h2 {
+    color: #1769aa;
+    margin-bottom: 20px;
+}
+
+/* FORMULARIOS */
+
+label {
+    display: block;
+    font-weight: 800;
+    margin-top: 12px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    margin-top: 7px;
+    border: 2px solid #c8d9e8;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+input:focus, select:focus {
+    outline: 2px solid #ffdf00;
+}
+
+/* BOTONES */
+
+button, .boton-editar, .boton-volver {
+    display: inline-block;
+    border: none;
+    border-radius: 9px;
+    padding: 11px 15px;
+    font-family: inherit;
+    font-weight: 900;
+    text-decoration: none;
+    cursor: pointer;
+    margin-top: 15px;
+}
+
+.boton-agregar {
+    background: #ffdf00;
+    color: #174c85;
+    width: 100%;
+    font-size: 16px;
+}
+
+.boton-agregar:hover {
+    background: #f5c400;
+}
+
+.boton-editar {
+    background: #1769aa;
+    color: white;
+    margin: 0;
+}
+
+.boton-eliminar {
+    background: #e94b4b;
+    color: white;
+    margin: 0;
+}
+
+.boton-volver {
+    background: #263238;
+    color: white;
+}
+
+/* TABLA */
+
+.tabla-contenedor {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
+
+th {
+    background: #1769aa;
+    color: white;
+    padding: 13px;
+}
+
+td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 2px solid #eeeeee;
+}
+
+tr:nth-child(even) {
+    background: #fff8d6;
+}
+
+.acciones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    flex-wrap: wrap;
+}
+
+.acciones form {
+    margin: 0;
+}
+
+/* MENSAJES */
+
+.mensaje {
+    background: #ffdf00;
+    color: #174c85;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.vacio {
+    text-align: center;
+    padding: 25px;
+    color: #1769aa;
+    font-weight: 700;
+}
+
+/* PIE DE PÁGINA */
+
+footer {
+    background: #1769aa;
+    color: white;
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+    font-weight: 700;
+}
+
+/* DISEÑO PARA CELULARES */
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 27px;
+    }
+
+    .contenedor {
+        width: 95%;
+    }
+
+    .tarjeta {
+        padding: 15px;
+    }
+
+    td, th {
+        padding: 9px;
+        font-size: 13px;
+    }
+}

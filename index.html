@@ -1,0 +1,117 @@
+
+{% extends "base.html" %}
+
+{% block titulo %}Inicio | Agenda Minions{% endblock %}
+
+{% block contenido %}
+
+<section class="bienvenida">
+    <h2>¡Hola, pequeño Gru! 💛</h2>
+    <p>Administra tus contactos en el laboratorio Minion.</p>
+</section>
+
+<section class="tarjeta">
+
+    <h2>🍌 Agregar nuevo contacto</h2>
+
+    <form action="{{ url_for('agregar') }}" method="POST">
+
+        <label>Nombre:</label>
+        <input type="text" name="nombre"
+               placeholder="Nombre del contacto" required>
+
+        <label>Teléfono:</label>
+        <input type="text" name="telefono"
+               placeholder="Número telefónico" required>
+
+        <label>Correo electrónico:</label>
+        <input type="email" name="correo"
+               placeholder="correo@ejemplo.com">
+
+        <label>Categoría:</label>
+        <select name="categoria" required>
+            <option value="Familia">👨‍👩‍👧 Familia</option>
+            <option value="Escuela">🎒 Escuela</option>
+            <option value="Trabajo">💼 Trabajo</option>
+            <option value="Otro">🍌 Otro</option>
+        </select>
+
+        <button type="submit" class="boton-agregar">
+            🍌 ¡Guardar contacto!
+        </button>
+
+    </form>
+
+</section>
+
+
+<section class="tarjeta">
+
+    <h2>💙 Lista de contactos Minion</h2>
+
+    {% if contactos %}
+
+    <div class="tabla-contenedor">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Teléfono</th>
+                    <th>Correo</th>
+                    <th>Categoría</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for contacto in contactos %}
+
+                <tr>
+                    <td>{{ contacto.nombre }}</td>
+                    <td>{{ contacto.telefono }}</td>
+                    <td>{{ contacto.correo or 'Sin correo' }}</td>
+                    <td>{{ contacto.categoria }}</td>
+
+                    <td class="acciones">
+
+                        <a href="{{ url_for('editar', id=contacto.id) }}"
+                           class="boton-editar">
+                           ✏️ Editar
+                        </a>
+
+                        <form action="{{ url_for('eliminar', id=contacto.id) }}"
+                              method="POST"
+                              onsubmit="return confirm('¿Seguro que quieres eliminar este contacto?');">
+
+                            <button type="submit" class="boton-eliminar">
+                                🗑️ Eliminar
+                            </button>
+
+                        </form>
+
+                    </td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    {% else %}
+
+        <p class="vacio">
+            ¡Oh no! Todavía no hay contactos.
+            Agrega uno para comenzar la aventura 🍌
+        </p>
+
+    {% endif %}
+
+</section>
+
+{% endblock %}

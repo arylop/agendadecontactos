@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block titulo %}Agenda Minions{% endblock %}</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='estilos.css') }}">
+</head>
+
+<body>
+
+    <header>
+        <h1>🍌 MINIONS AGENDA 🍌</h1>
+        <p>¡Bananaaaa! Tu mundo de contactos está aquí</p>
+    </header>
+
+    <main class="contenedor">
+
+        {% with mensajes = get_flashed_messages() %}
+            {% if mensajes %}
+                {% for mensaje in mensajes %}
+                    <div class="mensaje">{{ mensaje }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% block contenido %}{% endblock %}
+
+    </main>
+
+    <footer>
+        <p>💛 Hecho con amor y muchas bananas 💙</p>
+        <p>Agenda Minions © 2026</p>
+    </footer>
+
+</body>
+</html>
